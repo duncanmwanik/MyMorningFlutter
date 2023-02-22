@@ -18,20 +18,7 @@ List<DayObject> weekDaysList = [
 ];
 
 // all months
-List<String> months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
+List<String> months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 // converts 24hrs ti 12 hour clock version
 Map<int, int> hours24to12 = {0: 12, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 19: 7, 20: 8, 21: 9, 22: 10, 23: 11};
@@ -48,29 +35,9 @@ String get24to12(TimeOfDay time) {
   return '$hour:$minute $period';
 }
 
-// String get12to24(TimeOfDay time) {
-//   String period = time.period.name;
-//   String minute = time.minute.toString();
-//   minute = minute.length == 2 ? minute : '0$minute';
-//   String hours = '0';
-//   if (period == 'AM' && (time.hour != 12)) {
-//     hours = time.hour.toString();
-//   }
-//   if (period == 'AM' && (time.hour == 12)) {
-//     hours = '0';
-//   }
-//   if (period == 'PM' && (time.hour != 12)) {
-//     hours = hours12to24[time.hour].toString();
-//   }
-//   if (period == 'PM' && (time.hour == 12)) {
-//     hours = time.hour.toString();
-//   }
-//   return '$hours:$minute';
-// }
-
 String getWeekRange() {
-  String month1 = months[globalWatch.currentWeekDates[0].month];
-  String month2 = months[globalWatch.currentWeekDates[6].month];
+  String month1 = months[globalWatch.currentWeekDates[0].month - 1];
+  String month2 = months[globalWatch.currentWeekDates[6].month - 1];
   int day1 = globalWatch.currentWeekDates[0].day;
   int day2 = globalWatch.currentWeekDates[6].day;
   if (month1 == month2) {
@@ -81,11 +48,9 @@ String getWeekRange() {
 }
 
 String getWeekDay() {
-  int dayNo = globalWatch.currentWeekDates[globalWatch.selectedDate].weekday == 7
-      ? 0
-      : globalWatch.currentWeekDates[globalWatch.selectedDate].weekday;
+  int dayNo = globalWatch.currentWeekDates[globalWatch.selectedDate].weekday == 7 ? 0 : globalWatch.currentWeekDates[globalWatch.selectedDate].weekday;
   String day = weekDaysList[dayNo].dayName;
-  String month = months[globalWatch.currentWeekDates[globalWatch.selectedDate].month];
+  String month = months[globalWatch.currentWeekDates[globalWatch.selectedDate].month - 1];
   int date = globalWatch.currentWeekDates[globalWatch.selectedDate].day;
   return '$day, $month $date';
 }

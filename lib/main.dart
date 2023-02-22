@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/preferences.dart';
-import 'methods/firebase_auth/firebase_auth.dart';
 import 'methods/globals.dart';
 import 'state/ble.dart';
 import 'state/globals.dart';
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyMorning',
       theme: appTheme,
-      home: HomeScreen() ,
+      home: HomeScreen(),
       // home: firstTime ? HomeScreen() : WelcomeScreen(),
       builder: (context, child) {
         return Stack(

@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     vibrationPattern: 0,
                                     vibrationStrength: 9,
                                     snoozeOn: 0,
-                                    snoozeMin: 4,
+                                    snoozeMin: 1,
                                   )),
                         );
                       },

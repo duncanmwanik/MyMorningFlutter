@@ -33,16 +33,6 @@ class GlobalModel with ChangeNotifier {
   // ---------- alarms
   Map<int, List<String>> alarmMap = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: []};
 
-  // Map<int, List<String>> alarmMap = {
-  //   0: [],
-  //   1: ["1109045:0", "11090523:30"],
-  //   2: [],
-  //   3: ["1109045:0", "11090523:30"],
-  //   4: [],
-  //   5: ["1109045:0", "11090523:30"],
-  //   6: ["11090412:55", "1109040:56", "1109049:56", "11090516:58"]
-  // };
-
   void updateAlarmMap(Map<int, List<String>> val) {
     alarmMap = val;
     notifyListeners();

@@ -118,8 +118,7 @@ class _DevicesScreenState extends State<DevicesScreen> {
                   ? Container(
                       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       padding: EdgeInsets.only(bottom: 5),
-                      decoration:
-                          BoxDecoration(color: Colors.white60, borderRadius: BorderRadius.all(Radius.circular(40))),
+                      decoration: BoxDecoration(color: Colors.white60, borderRadius: BorderRadius.all(Radius.circular(40))),
                       child: Column(
                         children: [
                           Padding(
@@ -139,8 +138,7 @@ class _DevicesScreenState extends State<DevicesScreen> {
                                 ),
                                 IconButton(
                                     onPressed: () async {
-                                      TextEditingController? textController =
-                                          TextEditingController(text: ble.device!.name);
+                                      TextEditingController? textController = TextEditingController(text: ble.device!.name);
 
                                       bool success = await changeNameDialog(
                                           context: context,
@@ -219,8 +217,7 @@ class _DevicesScreenState extends State<DevicesScreen> {
                   : Container(
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       padding: EdgeInsets.all(20),
-                      decoration:
-                          BoxDecoration(color: Colors.white60, borderRadius: BorderRadius.all(Radius.circular(40))),
+                      decoration: BoxDecoration(color: Colors.white60, borderRadius: BorderRadius.all(Radius.circular(40))),
                       child: Column(
                         children: [
                           Text(
@@ -239,7 +236,6 @@ class _DevicesScreenState extends State<DevicesScreen> {
                                   borderRadius: BorderRadius.circular(50),
                                 )),
                             onPressed: () async {
-                              // showPairingDeviceDialog(context);
                               if (ble.btState) {
                                 FlutterBlue.instance.startScan(timeout: Duration(seconds: 4));
                                 await Navigator.push(

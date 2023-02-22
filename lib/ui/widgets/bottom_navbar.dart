@@ -19,7 +19,7 @@ Widget bottomNavbar(BuildContext context) {
       vibrationPattern: 0,
       vibrationStrength: 9,
       snoozeOn: 0,
-      snoozeMin: 5,
+      snoozeMin: 1,
     ),
     DevicesScreen(),
     ProfileScreen()
@@ -53,7 +53,7 @@ Widget bottomNavbar(BuildContext context) {
         ],
       ),
       FloatingNavbar(
-        onTap: (int val) {
+        onTap: (int val) async {
           if (val != 0) {
             Navigator.push(
               context,
