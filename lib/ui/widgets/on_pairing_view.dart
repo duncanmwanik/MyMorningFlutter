@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../methods/globals.dart';
-import '../../state/globals.dart';
+import '../../_variables/global_variables.dart';
+import '../../state/global_state.dart';
 import '../theme/theme.dart';
 
 Widget onPairingScreen() {
@@ -45,17 +45,14 @@ Widget onPairingScreen() {
               height: h * 0.03,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: FittedBox(
                 fit: BoxFit.contain,
                 child: Text(
                   "Connect Your Wearable.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontFamily: "Poppins",
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.none),
+                      fontFamily: "Poppins", color: Colors.white, fontWeight: FontWeight.w500, decoration: TextDecoration.none),
                 ),
               ),
             ),
@@ -114,13 +111,12 @@ Widget onPairingScreen() {
                   fontFamily: "Poppins",
                   fontSize: 25,
                   color: Colors.white,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   decoration: TextDecoration.none,
                   shadows: [
                     Shadow(
-                      blurRadius: 3.0, // shadow blur
-                      color: Colors.black, // shadow color
-                      offset: Offset(1.0, 1.0), // how much shadow will be shown
+                      blurRadius: 1.0, // shadow blur
+                      color: Colors.black38, // shadow color
                     ),
                   ],
                 ),

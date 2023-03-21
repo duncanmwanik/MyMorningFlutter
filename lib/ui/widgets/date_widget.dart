@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../methods/datetime.dart';
-import '../../methods/globals.dart';
+import '../../_variables/date_time_variables.dart';
+import '../../_variables/global_variables.dart';
 
 Widget dateIcon({required int dayNumber, required int alarmNumber}) {
   return GestureDetector(
@@ -9,6 +9,7 @@ Widget dateIcon({required int dayNumber, required int alarmNumber}) {
       globalWatch.selectNewDate(dayNumber);
     },
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
           'assets/images/arrow.png',

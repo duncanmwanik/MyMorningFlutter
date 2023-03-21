@@ -3,12 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/preferences.dart';
-import 'methods/globals.dart';
-import 'state/ble.dart';
-import 'state/globals.dart';
+import 'logic/global_logic.dart';
+import 'state/ble_state.dart';
+import 'state/global_state.dart';
 import 'ui/theme/theme.dart';
-import 'ui/screens/home.dart';
-import 'ui/widgets/loading_widget.dart';
+import 'ui/screens/home/home_screen.dart';
 import 'ui/widgets/on_pairing_view.dart';
 
 Future<void> main() async {
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // create syntax-shortcut variables that point to the respective provider funcions
-    createProviderReferences(context: context);
+    createGlobalProviderReferences(context: context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -51,7 +50,7 @@ class MyApp extends StatelessWidget {
       // home: firstTime ? HomeScreen() : WelcomeScreen(),
       builder: (context, child) {
         return Stack(
-          children: [child!, loadingWidget(context), onPairingScreen()],
+          children: [child!, onPairingScreen()],
         );
       },
     );

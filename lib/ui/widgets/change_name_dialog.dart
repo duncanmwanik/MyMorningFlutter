@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../methods/globals.dart';
+import '../../_variables/global_variables.dart';
 import '../theme/theme.dart';
 
 Future changeNameDialog(

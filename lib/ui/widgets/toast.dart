@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 void toast(int s, String m) {
   Fluttertoast.showToast(
       msg: m,
+      fontSize: 15,
       gravity: ToastGravity.TOP,
       backgroundColor: s == 0
           ? Colors.red
