@@ -3,19 +3,21 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 
-import '_variables/ble_variables.dart';
-import 'example/src/ble/ble_device_connector.dart';
-import 'example/src/ble/ble_device_interactor.dart';
-import 'example/src/ble/ble_scanner.dart';
-import 'example/src/ble/ble_status_monitor.dart';
+import 'variables/ble_variables.dart';
+import 'helpers/firebase_auth/firebase_auth_helper.dart';
+import 'helpers/reactiveBLE_helpers/ble_device_connector.dart';
+import 'helpers/reactiveBLE_helpers/ble_device_interactor.dart';
+import 'helpers/reactiveBLE_helpers/ble_scanner.dart';
+import 'helpers/reactiveBLE_helpers/ble_status_monitor.dart';
 
-import 'data/preferences.dart';
-import 'logic/global_logic.dart';
+import 'services/local_storage_service.dart';
+import 'helpers/global_helper.dart';
+import 'screens/auth/welcome_screen.dart';
+import 'screens/home/home_screen.dart';
 import 'state/ble_state.dart';
 import 'state/global_state.dart';
-import 'ui/theme/theme.dart';
-import 'ui/screens/home/home_screen.dart';
-import 'ui/widgets/on_pairing_view.dart';
+import 'config/theme/theme.dart';
+import 'widgets/on_pairing_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,8 +27,7 @@ Future<void> main() async {
   rble = FlutterReactiveBle();
 
   // know if the user is signed in
-  // bool firstTime = await getUser();
-  bool firstTime = false;
+  bool firstTime = await getUserStatusFromFirebaseAuth();
 
   final scanner = BleScanner(ble: rble);
   final monitor = BleStatusMonitor(rble);
@@ -91,8 +92,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyMorning',
       theme: appTheme,
-      home: HomeScreen(),
-      // home: firstTime ? HomeScreen() : WelcomeScreen(),
+      home: firstTime ? WelcomeScreen() : HomeScreen(),
       builder: (context, child) {
         return Stack(
           children: [child!, onPairingScreen()],
@@ -101,22 +101,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) => Consumer<BleStatus?>(
-//         builder: (_, status, __) {
-//           if (status == BleStatus.ready) {
-//             return const DeviceListScreen();
-//           } else {
-//             return BleStatusScreen(status: status ?? BleStatus.unknown);
-//           }
-//         },
-//       );
-// }

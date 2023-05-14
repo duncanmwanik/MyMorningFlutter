@@ -19,11 +19,14 @@ dependencies:
   expandable_page_view: ^1.0.17
   floating_bottom_navigation_bar: ^1.5.2
   flutter_time_picker_spinner: ^2.0.0
+  flutter_spinner_picker:
+    path: ./flutter_spinner_picker
   numberpicker: ^2.1.1
   flutter_advanced_switch: ^3.0.1
   fluttertoast: ^8.1.1
   firebase_auth: ^4.1.0
   firebase_core: ^2.1.1
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:

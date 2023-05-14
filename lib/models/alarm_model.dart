@@ -21,13 +21,3 @@ class AlarmObject {
     required this.alarmName,
   });
 }
-
-class TestObject {
-  int a;
-  int b;
-
-  TestObject({
-    required this.a,
-    required this.b,
-  });
-}
